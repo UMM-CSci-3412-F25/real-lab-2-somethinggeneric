@@ -34,11 +34,11 @@ char* disemvowel(char* str) {
 
 	newstring[index] = '\0';
 
-	char* final_str = (char*)realloc(newstring, index + 1);
+	char* final = (char*)realloc(newstring, index + 1);
 
-	if (final_str == NULL) {
+	if (final == NULL) {
 		free(newstring);
 		return NULL;
 	}
-  return final_str;
+  return final;
 }
