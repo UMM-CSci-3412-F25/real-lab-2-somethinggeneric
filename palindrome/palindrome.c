@@ -9,13 +9,14 @@ char *str_reverse(char const *str) {
   char *result;
 
   len = strlen(str);
-  result = (char*) calloc(len+1, sizeof(char));
+  result = (char*) calloc(len+1, sizeof(char)); // memory loss
   for (i=0; i<len; ++i) {
     result[i] = str[len-i-1];
   }
   result[len] = '\0';
   
   return result;
+  // free(result);
 }
 
 char *palindrome(char const *str) {
@@ -23,8 +24,8 @@ char *palindrome(char const *str) {
   int i;
   bool result = true;
   char *answer;
-
-  rev = str_reverse(str);
+ // char character = sizeof(char);
+  rev = str_reverse(str); // memory loss?
   i = 0;
   while (result && str[i]) {
     if (str[i] != rev[i]) {
@@ -34,17 +35,18 @@ char *palindrome(char const *str) {
   }
 
   if (result) {
-    answer = (char*) calloc(4, sizeof(char));
+    
+    answer = (char*) calloc(4, sizeof(char)); // memory loss?
     answer[0] = 'Y';
     answer[1] = 'e';
     answer[2] = 's';
     answer[3] = '\0';
   } else {
-    answer = (char*) calloc(3, sizeof(char));
+    answer = (char*) calloc(3, sizeof(char)); // memory loss?
     answer[0] = 'N';
     answer[1] = 'o';
     answer[2] = '\0';
   }
-
+  free(rev);
   return answer;
 }

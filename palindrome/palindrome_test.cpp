@@ -3,20 +3,26 @@
 #include "palindrome.h"
 
 void is_palindrome(char const *str) {
-  ASSERT_STREQ(palindrome(str), "Yes");
+  char* drome;
+  drome = palindrome(str);
+  ASSERT_STREQ(drome, "Yes"); //memoery loss
+free(drome);
 }
 
 void not_palindrome(char const *str) {
-  ASSERT_STREQ(palindrome(str), "No");
+  char* drome;
+  drome = palindrome(str);
+  ASSERT_STREQ(drome, "No");
+  free(drome);
 }
 
 TEST(Palindrome, HandlesEmptyString) {
-  is_palindrome("");
+  is_palindrome(""); //
 }
 
 TEST(Palindrome, HandlesSingletons) {
   is_palindrome("a");
-  is_palindrome("b");
+  is_palindrome("b");  // all
   is_palindrome("c");
 }
 
