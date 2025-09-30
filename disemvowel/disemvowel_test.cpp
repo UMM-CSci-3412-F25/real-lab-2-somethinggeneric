@@ -27,7 +27,7 @@ TEST(Disemvowel, HandleMorrisMinnesota) {
 }
 
 TEST(Disemvowel, HandlePunctuation) {
-    char *word = disemvowel((char*) "An (Unexplained) Elephant!")
+     char *word = disemvowel((char*) "An (Unexplained) Elephant!");
   ASSERT_STREQ("n (nxplnd) lphnt!", word);
   free(word);
 }
@@ -46,10 +46,9 @@ TEST(Disemvowel, HandleLongString) {
     str[i] = 'a';
   }
   str[size-1] = '\0';
-  
   char *word = disemvowel(str);
   ASSERT_STREQ("xyz", word);
-
+  
   free(word);
   free(str);
 }
